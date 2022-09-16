@@ -21,8 +21,13 @@ public class Helper {
 	public static boolean checkExcelFormat(MultipartFile file) {
 
 		String contentType = file.getContentType();
+		System.out.println(contentType);
+		// System.out.println(contentType.length());
+		System.out.println(contentType.isEmpty());
+		// if
+		// (contentType.equals("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"))
+		if (contentType.equals("application/vnd.ms-excel")) {
 
-		if (contentType.equals("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")) {
 			return true;
 		} else {
 			return false;
@@ -63,19 +68,37 @@ public class Helper {
 
 						switch (cid) {
 						case 0:
-							p.setId((int) cell.getNumericCellValue());
+							// int id = (int) cell.getNumericCellValue();
+
+							int id = (int) cell.getNumericCellValue();
+							//System.out.println(id);
+							p.setId(id);
 							break;
-						case 1:
-							p.setProductName(cell.getStringCellValue());
+
+						case 1: 
+							// p.setProductName(cell.getStringCellValue());
+							String prodName=cell.getStringCellValue();
+							//System.out.println(prodName);
+							p.setProductName(prodName);
 							break;
 						case 2:
-							p.setQuantity(cell.getNumericCellValue());
+							// p.setQuantity(cell.getStringCellValue());
+							int qty = (int) cell.getNumericCellValue();
+							//System.out.println(qty);
+							p.setQuantity(String.valueOf(qty));
 							break;
-						case 3:
-							p.setGst(cell.getStringCellValue());
+						case 3: // p.setGst(cell.getStringCellValue());
+							double GST=cell.getNumericCellValue();
+							//System.out.println(GST);
+							p.setGst(String.valueOf(GST));
 							break;
 						case 4:
-							p.setPrice(cell.getNumericCellValue());
+							// p.setPrice(cell.getNumericCellValue());
+							double price=  cell.getNumericCellValue();
+							//System.out.println(price);
+							p.setPrice(price);
+							break;
+
 						default:
 							break;
 						}// switch end

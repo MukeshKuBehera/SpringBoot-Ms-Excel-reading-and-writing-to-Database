@@ -25,7 +25,7 @@ public class ProductRestController {
 	@PostMapping("/upload")
 	public ResponseEntity<?> fileUpload(@RequestParam("file") MultipartFile file){
 		
-		System.out.println(">>>>>>>>>>"+file.getOriginalFilename());
+		//System.out.println(">>>>>>>>>>"+file.getOriginalFilename());
 		if(Helper.checkExcelFormat(file)) {
 			//true
 			this.productService.save(file);

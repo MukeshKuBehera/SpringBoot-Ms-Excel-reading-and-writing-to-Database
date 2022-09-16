@@ -8,13 +8,16 @@ import javax.persistence.Table;
 public class Product {
 
 	@javax.persistence.Id
-	private Integer Id;
+	private int Id;
 	private String productName;
-	private Double quantity;
+	private String quantity;
 	private String gst;
 	private Double price;
-
-	public Product(Integer id, String productName, Double quantity, String gst, Double price) {
+	public Product() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Product(int id, String productName, String quantity, String gst, Double price) {
 		super();
 		Id = id;
 		this.productName = productName;
@@ -22,55 +25,35 @@ public class Product {
 		this.gst = gst;
 		this.price = price;
 	}
-
-	public Integer getId() {
+	public int getId() {
 		return Id;
 	}
-
-	public void setId(Integer id) {
+	public void setId(int id) {
 		Id = id;
 	}
-
 	public String getProductName() {
 		return productName;
 	}
-
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-
-	public Double getQuantity() {
+	public String getQuantity() {
 		return quantity;
 	}
-
-	public void setQuantity(Double quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
-
 	public String getGst() {
 		return gst;
 	}
-
 	public void setGst(String gst) {
 		this.gst = gst;
 	}
-
 	public Double getPrice() {
 		return price;
 	}
-
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-
-	public Product() {
-		super();
-	}
-
-	@Override
-	public String toString() {
-		return "Product [Id=" + Id + ", productName=" + productName + ", quantity=" + quantity + ", gst=" + gst
-				+ ", price=" + price + "]";
-	}
-
+		
 }
